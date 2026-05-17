@@ -21,7 +21,7 @@ It allows users to view connected USB devices, and quickly block or allow them w
 ## 🚀 Quick Install & Run
 
 ```bash
-git clone https://github.com/enzhyperx/USBguard.git
+git clone https://github.com/enzhyperx/USBguard.com
 cd USBguard
 
 sudo pacman -S usbguard usbutils python python-pip
