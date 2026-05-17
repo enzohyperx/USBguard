@@ -22,7 +22,7 @@ It allows users to view connected USB devices, and quickly block or allow them w
 ## ⚙️ Installation (Arch Linux)
 
 ```bash
-git clone https://github.com/enzohyperx/usbguard-cli-dashboard.git
+git clone https://github.com/enzohyperx/USBguard
 cd usbguard-cli-dashboard
 chmod +x install.sh
 ./install.sh
