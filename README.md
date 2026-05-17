@@ -23,6 +23,6 @@ It allows users to view connected USB devices, and quickly block or allow them w
 
 ```bash
 git clone https://github.com/enzohyperx/USBguard
-cd usbguard-cli-dashboard
+cd USBguard
 chmod +x install.sh
 ./install.sh
