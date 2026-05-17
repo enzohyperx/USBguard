@@ -18,11 +18,17 @@ It allows users to view connected USB devices, and quickly block or allow them w
 - System-level USB protection via USBGuard
 
 ---
-
-## ⚙️ Installation (Arch Linux)
+## 🚀 Quick Install & Run
 
 ```bash
-git clone https://github.com/enzohyperx/USBguard
+git clone https://github.com/enzhyperx/USBguard.git
 cd USBguard
-chmod +x install.sh
-./install.sh
+
+sudo pacman -S usbguard usbutils python python-pip
+
+python -m venv venv
+./venv/bin/pip install rich
+
+sudo systemctl enable --now usbguard
+
+sudo ./venv/bin/python usbguard_cli.py
