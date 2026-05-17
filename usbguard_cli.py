@@ -203,31 +203,25 @@ def apply(dev, action):
     elif action == "a":
         subprocess.run(["usbguard", "allow-device", dev["id"]], check=True)
 
-
 def main():
+    ...
     devices = get_devices()
     selected = 0
-
     while True:
         render(devices, selected)
-
         cmd = input("\n> ").strip().lower()
-
         if cmd == "q":
             clear()
             break
-
         if cmd.isdigit():
             idx = int(cmd) - 1
             if 0 <= idx < len(devices):
                 selected = idx
-
         elif cmd in ["a", "b"]:
             try:
                 apply(devices[selected], cmd)
             except Exception:
                 pass
-
         devices = get_devices()
 
 
