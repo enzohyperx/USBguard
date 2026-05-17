@@ -2,42 +2,21 @@
 
 set -e
 
-echo "======================================"
-echo " USBGuard CLI Dashboard Installer"
-echo "======================================"
+echo "Installing USBGuard CLI Dashboard..."
 
-# Detect OS (basic safety check)
-if ! command -v pacman &> /dev/null; then
-    echo "[ERROR] This installer is designed for Arch Linux."
+if ! command -v pacman >/dev/null 2>&1; then
+    echo "This installer is for Arch Linux only."
     exit 1
 fi
 
-echo "[1/4] Installing system dependencies..."
-
 sudo pacman -S --noconfirm usbguard usbutils python python-pip
 
-echo "[2/4] Installing Python dependencies..."
+python -m venv venv
 
-pip install --user rich
-
-echo "[3/4] Enabling USBGuard service..."
+./venv/bin/pip install --upgrade pip >/dev/null
+./venv/bin/pip install rich >/dev/null
 
 sudo systemctl enable --now usbguard
 
-echo "[4/4] Setting permissions..."
-
-chmod +x usbguard_cli.py
-
-echo ""
-echo "======================================"
-echo " Installation complete!"
-echo "======================================"
-echo ""
-echo "Run the tool with:"
-echo "  sudo python usbguard_cli.py"
-echo ""
-echo "Or:"
-echo "  sudo ./usbguard_cli.py"
-echo ""
-echo "GitHub: https://github.com/enzohyperx"
-echo "======================================"
+echo "Done."
+echo "Run with: sudo ./venv/bin/python usbguard_cli.py"
